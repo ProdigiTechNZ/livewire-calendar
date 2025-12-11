@@ -1,5 +1,5 @@
 {
-    "name": "act-training/livewire-calendar",
+    "name": "prodigi/livewire-calendar",
     "description": "A Livewire wrapper for FullCalendar.",
     "keywords": [
         "ACT Training",
@@ -24,8 +24,8 @@
     "require-dev": {
         "larastan/larastan": "^2.0.1",
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.8",
-        "orchestra/testbench": "^8.8",
+        "nunomaduro/collision": "^8.1",
+        "orchestra/testbench": "^9.0",
         "pestphp/pest": "^2.20",
         "pestphp/pest-plugin-arch": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",

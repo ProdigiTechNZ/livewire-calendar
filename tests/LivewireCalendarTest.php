@@ -1,6 +1,6 @@
 <?php
 
-use ACTTraining\LivewireCalendar\Tests\Testables\TestCalendar;
+use Prodigi\LivewireCalendar\Tests\Testables\TestCalendar;
 use Livewire\Livewire;
 
 it('mounts the component', function () {

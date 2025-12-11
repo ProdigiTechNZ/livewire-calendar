@@ -1,6 +1,6 @@
 <?php
 
-// config for ACTTraining/LivewireCalendar
+// config for Prodigi/LivewireCalendar
 return [
 
 ];

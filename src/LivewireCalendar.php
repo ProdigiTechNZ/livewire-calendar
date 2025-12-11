@@ -1,15 +1,15 @@
 <?php
 
-namespace ACTTraining\LivewireCalendar;
+namespace Prodigi\LivewireCalendar;
 
-use ACTTraining\LivewireCalendar\Concerns\WithBusinessHours;
-use ACTTraining\LivewireCalendar\Concerns\WithDateAndTime;
-use ACTTraining\LivewireCalendar\Concerns\WithDateNavigation;
-use ACTTraining\LivewireCalendar\Concerns\WithEventDisplay;
-use ACTTraining\LivewireCalendar\Concerns\WithLocale;
-use ACTTraining\LivewireCalendar\Concerns\WithNow;
-use ACTTraining\LivewireCalendar\Concerns\WithToolbar;
-use ACTTraining\LivewireCalendar\Concerns\WithView;
+use Prodigi\LivewireCalendar\Concerns\WithBusinessHours;
+use Prodigi\LivewireCalendar\Concerns\WithDateAndTime;
+use Prodigi\LivewireCalendar\Concerns\WithDateNavigation;
+use Prodigi\LivewireCalendar\Concerns\WithEventDisplay;
+use Prodigi\LivewireCalendar\Concerns\WithLocale;
+use Prodigi\LivewireCalendar\Concerns\WithNow;
+use Prodigi\LivewireCalendar\Concerns\WithToolbar;
+use Prodigi\LivewireCalendar\Concerns\WithView;
 use Livewire\Component;
 
 abstract class LivewireCalendar extends Component

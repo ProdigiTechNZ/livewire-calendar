@@ -2,7 +2,6 @@
     "name": "prodigi/livewire-calendar",
     "description": "A Livewire wrapper for FullCalendar.",
     "keywords": [
-        "ACT Training",
         "laravel",
         "livewire-calendar"
     ],
@@ -37,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "ACTTraining\\LivewireCalendar\\": "src/",
-            "ACTTraining\\LivewireCalendar\\Database\\Factories\\": "database/factories/"
+            "Prodigi\\LivewireCalendar\\": "src/",
+            "Prodigi\\LivewireCalendar\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ACTTraining\\LivewireCalendar\\Tests\\": "tests/",
+            "Prodigi\\LivewireCalendar\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -75,10 +74,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ACTTraining\\LivewireCalendar\\LivewireCalendarServiceProvider"
+                "Prodigi\\LivewireCalendar\\LivewireCalendarServiceProvider"
             ],
             "aliases": {
-                "LivewireCalendar": "ACTTraining\\LivewireCalendar\\Facades\\LivewireCalendar"
+                "LivewireCalendar": "Prodigi\\LivewireCalendar\\Facades\\LivewireCalendar"
             }
         }
     },

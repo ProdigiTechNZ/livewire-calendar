@@ -1,18 +1,15 @@
 # A Livewire wrapper for FullCalendar.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/act-training/livewire-calendar.svg?style=flat-square)](https://packagist.org/packages/act-training/livewire-calendar)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/act-training/livewire-calendar/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/act-training/livewire-calendar/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/act-training/livewire-calendar/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/act-training/livewire-calendar/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/act-training/livewire-calendar.svg?style=flat-square)](https://packagist.org/packages/act-training/livewire-calendar)
-
 Livewire Calendar is an easy way to make use of [FullCalendar](https://fullcalendar.io/) in your Laravel applications.
+
+Forked from [ACTTraining/livewire-calendar](https://github.com/ACTTraining/livewire-calendar). However, this appears to be abandonware, so it has been heavily tweaked (and internally renamed, so it's less likely to collide with the original)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require act-training/livewire-calendar
+composer require prodigi/livewire-calendar
 ```
 
 You can publish the config file with:
@@ -37,8 +34,8 @@ php artisan vendor:publish --tag="livewire-calendar-views"
 ## Usage
 
 ```php
-$livewireCalendar = new ACTTraining\LivewireCalendar();
-echo $livewireCalendar->echoPhrase('Hello, ACTTraining!');
+$livewireCalendar = new Prodigi\LivewireCalendar();
+echo $livewireCalendar->echoPhrase('Hello!');
 ```
 
 ## Testing
@@ -59,7 +56,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
-## Credits
+## Originally Authored Be
 
 - [Simon Barrett](https://github.com/SimonBarrettACT)
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace ACTTraining\LivewireCalendar\Tests;
+namespace Prodigi\LivewireCalendar\Tests;
 
-use ACTTraining\LivewireCalendar\LivewireCalendar;
-use ACTTraining\LivewireCalendar\LivewireCalendarServiceProvider;
+use Prodigi\LivewireCalendar\LivewireCalendar;
+use Prodigi\LivewireCalendar\LivewireCalendarServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\Livewire;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -15,7 +15,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'ACTTraining\\LivewireCalendar\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Prodigi\\LivewireCalendar\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
 
         $this->registerLivewireComponents();

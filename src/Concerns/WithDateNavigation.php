@@ -1,6 +1,6 @@
 <?php
 
-namespace ACTTraining\LivewireCalendar\Concerns;
+namespace Prodigi\LivewireCalendar\Concerns;
 
 use Carbon\Carbon;
 

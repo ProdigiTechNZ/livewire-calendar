@@ -1,5 +1,5 @@
 <?php
 
-use ACTTraining\LivewireCalendar\Tests\TestCase;
+use Prodigi\LivewireCalendar\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

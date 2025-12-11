@@ -1,6 +1,6 @@
 <?php
 
-namespace ACTTraining\LivewireCalendar;
+namespace Prodigi\LivewireCalendar;
 
 use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;

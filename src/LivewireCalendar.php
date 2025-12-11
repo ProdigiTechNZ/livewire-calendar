@@ -2,6 +2,7 @@
 
 namespace Prodigi\LivewireCalendar;
 
+use Livewire\Component;
 use Prodigi\LivewireCalendar\Concerns\WithBusinessHours;
 use Prodigi\LivewireCalendar\Concerns\WithDateAndTime;
 use Prodigi\LivewireCalendar\Concerns\WithDateNavigation;
@@ -10,10 +11,9 @@ use Prodigi\LivewireCalendar\Concerns\WithLocale;
 use Prodigi\LivewireCalendar\Concerns\WithNow;
 use Prodigi\LivewireCalendar\Concerns\WithToolbar;
 use Prodigi\LivewireCalendar\Concerns\WithView;
-use Livewire\Component;
 
-abstract class LivewireCalendar extends Component
-{
+abstract class LivewireCalendar extends Component {
+
     use WithBusinessHours;
     use WithDateAndTime;
     use WithDateNavigation;
@@ -27,18 +27,20 @@ abstract class LivewireCalendar extends Component
 
     abstract public function eventClick($info): void;
 
-    public function booted(): void
-    {
+    public function booted(): void {
+
         $this->config();
-    }
 
-    public function config(): void
-    {
-        //
-    }
+    } //end booted()
 
-    public function render()
-    {
+    public function config(): void {
+
+    } //end config()
+
+    public function render() {
+
         return view('livewire-calendar::calendar');
-    }
-}
+
+    } //end render()
+
+} //end class

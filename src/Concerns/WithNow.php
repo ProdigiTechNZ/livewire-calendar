@@ -2,33 +2,38 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
-trait WithNow
-{
+trait WithNow {
+
     protected bool $now = true;
 
     protected bool $nowIndicator = false;
 
-    public function now(): bool
-    {
-        return $this->now;
-    }
+    public function now(): bool {
 
-    public function showNow(bool $now = true): static
-    {
+        return $this->now;
+
+    } //end now()
+
+    public function showNow(bool $now=true): static {
+
         $this->now = $now;
 
         return $this;
-    }
 
-    public function nowIndicator(): bool
-    {
+    } //end showNow()
+
+    public function nowIndicator(): bool {
+
         return $this->nowIndicator;
-    }
 
-    public function showNowIndicator(bool $nowIndicator = true): static
-    {
+    } //end nowIndicator()
+
+    public function showNowIndicator(bool $nowIndicator=true): static {
+
         $this->nowIndicator = $nowIndicator;
 
         return $this;
-    }
+
+    } //end showNowIndicator()
+
 }

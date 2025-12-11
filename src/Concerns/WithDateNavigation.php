@@ -4,23 +4,26 @@ namespace Prodigi\LivewireCalendar\Concerns;
 
 use Carbon\Carbon;
 
-trait WithDateNavigation
-{
+trait WithDateNavigation {
+
     protected ?Carbon $initialDate = null;
 
-    public function initialDate(): string
-    {
+    public function initialDate(): string {
+
         if (is_null($this->initialDate)) {
             return Carbon::now();
         }
 
         return $this->initialDate;
-    }
 
-    public function setInitialDate($initialDate = null): static
-    {
+    } //end initialDate()
+
+    public function setInitialDate($initialDate=null): static {
+
         $this->initialDate = $initialDate;
 
         return $this;
-    }
+
+    } //end setInitialDate()
+
 }

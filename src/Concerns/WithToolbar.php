@@ -2,33 +2,38 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
-trait WithToolbar
-{
+trait WithToolbar {
+
     protected ?array $headerToolbar = null;
 
     protected ?array $footerToolbar = null;
 
-    public function headerToolbar(): ?array
-    {
-        return $this->headerToolbar;
-    }
+    public function headerToolbar(): ?array {
 
-    public function setHeaderToolbar($headerToolbar = null): static
-    {
+        return $this->headerToolbar;
+
+    } //end headerToolbar()
+
+    public function setHeaderToolbar($headerToolbar=null): static {
+
         $this->headerToolbar = $headerToolbar;
 
         return $this;
-    }
 
-    public function footerToolbar(): ?array
-    {
+    } //end setHeaderToolbar()
+
+    public function footerToolbar(): ?array {
+
         return $this->footerToolbar;
-    }
 
-    public function setFooterToolbar($footerToolbar = null): static
-    {
+    } //end footerToolbar()
+
+    public function setFooterToolbar($footerToolbar=null): static {
+
         $this->footerToolbar = $footerToolbar;
 
         return $this;
-    }
+
+    } //end setFooterToolbar()
+
 }

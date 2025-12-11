@@ -2,19 +2,22 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
-trait WithBusinessHours
-{
+trait WithBusinessHours {
+
     protected array $businessHours = [];
 
-    public function businessHours(): array
-    {
-        return $this->businessHours;
-    }
+    public function businessHours(): array {
 
-    public function setBusinessHours($businessHours = []): static
-    {
+        return $this->businessHours;
+
+    } //end businessHours()
+
+    public function setBusinessHours($businessHours=[]): static {
+
         $this->businessHours = $businessHours;
 
         return $this;
-    }
+
+    } //end setBusinessHours()
+
 }

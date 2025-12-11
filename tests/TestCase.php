@@ -2,45 +2,52 @@
 
 namespace Prodigi\LivewireCalendar\Tests;
 
-use Prodigi\LivewireCalendar\LivewireCalendar;
-use Prodigi\LivewireCalendar\LivewireCalendarServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\Livewire;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Prodigi\LivewireCalendar\LivewireCalendar;
+use Prodigi\LivewireCalendar\LivewireCalendarServiceProvider;
 
-class TestCase extends Orchestra
-{
-    protected function setUp(): void
-    {
-        parent::setUp();
+final class TestCase extends Orchestra {
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Prodigi\\LivewireCalendar\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+    public function getEnvironmentSetUp($app): void {
 
-        $this->registerLivewireComponents();
-    }
-
-    protected function getPackageProviders($app): array
-    {
-        return [
-            \Livewire\LivewireServiceProvider::class,
-            LivewireCalendarServiceProvider::class,
-        ];
-    }
-
-    public function getEnvironmentSetUp($app): void
-    {
         config()->set('database.default', 'testing');
 
         /*
         $migration = include __DIR__.'/../database/migrations/create_livewire-calendar_table.php.stub';
         $migration->up();
         */
-    }
 
-    protected function registerLivewireComponents(): void
-    {
+    } //end getEnvironmentSetUp()
+
+    protected function setUp(): void {
+
+        parent::setUp();
+
+        Factory::guessFactoryNamesUsing(
+            fn (string $modelName) => 'Prodigi\\LivewireCalendar\\Database\\Factories\\'.class_basename(
+                $modelName,
+            ).'Factory',
+        );
+
+        $this->registerLivewireComponents();
+
+    } //end setUp()
+
+    protected function getPackageProviders($app): array {
+
+        return [
+            \Livewire\LivewireServiceProvider::class,
+            LivewireCalendarServiceProvider::class,
+        ];
+
+    } //end getPackageProviders()
+
+    protected function registerLivewireComponents(): void {
+
         Livewire::component('livewire-calendar', LiveWireCalendar::class);
-    }
-}
+
+    } //end registerLivewireComponents()
+
+} //end class

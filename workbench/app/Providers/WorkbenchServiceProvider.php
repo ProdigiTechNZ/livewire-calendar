@@ -5,21 +5,22 @@ namespace Workbench\App\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-class WorkbenchServiceProvider extends ServiceProvider
-{
+final class WorkbenchServiceProvider extends ServiceProvider {
+
     /**
      * Register services.
      */
-    public function register(): void
-    {
-        //
-    }
+    public function register(): void {
+
+    } //end register()
 
     /**
      * Bootstrap services.
      */
-    public function boot(): void
-    {
+    public function boot(): void {
+
         Route::view('/', 'welcome');
-    }
-}
+
+    } //end boot()
+
+} //end class

@@ -2,33 +2,38 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
-trait WithEventDisplay
-{
+trait WithEventDisplay {
+
     protected bool $displayEventEnd = true;
 
     protected bool $displayEventTime = true;
 
-    public function displayEventEnd(): bool
-    {
-        return $this->displayEventEnd;
-    }
+    public function displayEventEnd(): bool {
 
-    public function setDisplayEventEnd($displayEventEnd = true): static
-    {
+        return $this->displayEventEnd;
+
+    } //end displayEventEnd()
+
+    public function setDisplayEventEnd($displayEventEnd=true): static {
+
         $this->displayEventEnd = $displayEventEnd;
 
         return $this;
-    }
 
-    public function displayEventTime(): bool
-    {
+    } //end setDisplayEventEnd()
+
+    public function displayEventTime(): bool {
+
         return $this->displayEventTime;
-    }
 
-    public function setDisplayEventTime($displayEventTime = true): static
-    {
+    } //end displayEventTime()
+
+    public function setDisplayEventTime($displayEventTime=true): static {
+
         $this->displayEventTime = $displayEventTime;
 
         return $this;
-    }
+
+    } //end setDisplayEventTime()
+
 }

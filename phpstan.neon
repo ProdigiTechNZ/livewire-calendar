@@ -1,0 +1,19 @@
+#includes:
+#    - phpstan-baseline.neon
+#    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 7
+    tipsOfTheDay: false
+    errorFormat: raw
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # all the laravel specific stuff phpstan/larastan aren't _quite_ clever enough to catch
+        - "#Called '(first|pluck)' on Laravel collection, but could have been retrieved as a query#"
+        # these are autoloaded, but somehow not recognised
+        - '#Caught class [a-zA-Z0-9\\_]+Exception not found#'
+        - '#Caught class [a-zA-Z0-9\\_]+Throwable not found#'
+        # phpstan is confused by macros
+        - '#Call to an undefined method App\\Providers\\(App|Nova)ServiceProvider::+#'
+        # it's not actually a final class
+        - '#extends @final class Monolog\\Logger#'

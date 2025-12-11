@@ -2,7 +2,8 @@
 
 namespace Prodigi\LivewireCalendar;
 
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\View as ViewFacade;
 use Livewire\Component;
 use Prodigi\LivewireCalendar\Concerns\WithBusinessHours;
 use Prodigi\LivewireCalendar\Concerns\WithDateAndTime;
@@ -57,9 +58,16 @@ abstract class LivewireCalendar extends Component {
 
     } //end config()
 
+    /**
+     * note: using a ViewFacade (which ensures the path is correct), returns an:
+     *      Illuminate\Contracts\View\View
+     *
+     * not an:
+     *      Illuminate\View\View
+     */
     public function render(): View {
 
-        return view('livewire-calendar::calendar');
+        return ViewFacade::make('livewire-calendar::calendar');
 
     } //end render()
 

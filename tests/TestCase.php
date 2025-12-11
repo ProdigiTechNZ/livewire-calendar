@@ -11,11 +11,14 @@ use Prodigi\LivewireCalendar\LivewireCalendarServiceProvider;
 /**
  * original author didn't bother with function comments
  *
+ * note: can't make it final, because pest TestCastFactory derives from this
+ *
  * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ * phpcs:disable SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
  *
  * @SuppressWarnings("UnusedFormalParameter")
  */
-final class TestCase extends Orchestra {
+class TestCase extends Orchestra {
 
     public function getEnvironmentSetUp($app): void {
 

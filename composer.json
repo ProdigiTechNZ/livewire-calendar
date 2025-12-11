@@ -5,33 +5,38 @@
         "laravel",
         "livewire-calendar"
     ],
-    "homepage": "https://github.com/act-training/livewire-calendar",
+    "homepage": "https://github.com/ProdigiTechNZ/livewire-calendar",
     "license": "MIT",
     "authors": [
         {
             "name": "Simon Barrett",
             "email": "simonbarrett@acttraining.org.uk",
             "role": "Developer"
+        },
+        {
+            "name": "Si Dawson",
+            "email": "si@prodigi.nz",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.2",
-        "livewire/livewire": "^v3.2.6",
+        "php": "^8.3",
+        "livewire/livewire": "^v3.6.4",
         "nesbot/carbon": "^3.0",
         "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
-        "larastan/larastan": "^2.0.1",
+        "larastan/larastan": "^3.0",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^8.1",
-        "orchestra/testbench": "^9.0",
-        "pestphp/pest": "^2.20",
-        "pestphp/pest-plugin-arch": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "pestphp/pest-plugin-livewire": "^2.1",
+        "orchestra/testbench": "^10.0",
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-arch": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "pestphp/pest-plugin-livewire": "^3.1",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {

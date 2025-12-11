@@ -2,6 +2,7 @@
 
 namespace Prodigi\LivewireCalendar;
 
+use Illuminate\View\View;
 use Livewire\Component;
 use Prodigi\LivewireCalendar\Concerns\WithBusinessHours;
 use Prodigi\LivewireCalendar\Concerns\WithDateAndTime;
@@ -12,6 +13,13 @@ use Prodigi\LivewireCalendar\Concerns\WithNow;
 use Prodigi\LivewireCalendar\Concerns\WithToolbar;
 use Prodigi\LivewireCalendar\Concerns\WithView;
 
+/**
+ * FullCalendar documentation (quite good) at: https://fullcalendar.io/docs/
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 abstract class LivewireCalendar extends Component {
 
     use WithBusinessHours;
@@ -23,9 +31,19 @@ abstract class LivewireCalendar extends Component {
     use WithToolbar;
     use WithView;
 
+    /**
+     * internal abstractions
+     *
+     * @return array<mixed>
+     */
     abstract public function getEventsProperty(): array;
 
-    abstract public function eventClick($info): void;
+    /**
+     * handle clicks (this is all abstracted away internally)
+     *
+     * @param array{event: array<mixed>, jsEvent: array<mixed>, view: array<mixed>} $info
+     */
+    abstract public function eventClick(array $info): void;
 
     public function booted(): void {
 
@@ -35,9 +53,11 @@ abstract class LivewireCalendar extends Component {
 
     public function config(): void {
 
+        // not implemented
+
     } //end config()
 
-    public function render() {
+    public function render(): View {
 
         return view('livewire-calendar::calendar');
 

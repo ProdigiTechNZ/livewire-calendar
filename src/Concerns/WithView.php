@@ -2,6 +2,13 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
+/**
+ * primary reference: https://fullcalendar.io/docs/initialView
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 trait WithView {
 
     protected string $initialView = 'dayGridMonth';
@@ -12,7 +19,12 @@ trait WithView {
 
     } //end initialView()
 
-    public function setInitialView($initialView='dayGridMonth'): static {
+    /**
+     * A name of any of the available views, such as 'dayGridWeek', 'timeGridDay', 'listWeek' .
+     *
+     * ref: https://fullcalendar.io/docs/initialView
+     */
+    public function setInitialView(string $initialView='dayGridMonth'): static {
 
         $this->initialView = $initialView;
 

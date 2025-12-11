@@ -2,6 +2,14 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
+/**
+ * primary ref: https://fullcalendar.io/docs/locale
+ *              https://fullcalendar.io/docs/timeZone
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 trait WithLocale {
 
     protected ?string $locale = null;

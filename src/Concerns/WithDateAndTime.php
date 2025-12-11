@@ -2,6 +2,14 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
+/**
+ * primary ref: https://fullcalendar.io/docs/date-display
+ * primary ref: https://fullcalendar.io/docs/fixedWeekCount
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 trait WithDateAndTime {
 
     protected bool $showWeekends = true;

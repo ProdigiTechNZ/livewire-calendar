@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
+/**
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 final class LivewireCalendarServiceProvider extends PackageServiceProvider {
 
     public function configurePackage(Package $package): void {

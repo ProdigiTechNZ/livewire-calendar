@@ -2,6 +2,13 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
+/**
+ * primary ref: https://fullcalendar.io/docs/event-display
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 trait WithEventDisplay {
 
     protected bool $displayEventEnd = true;
@@ -14,7 +21,7 @@ trait WithEventDisplay {
 
     } //end displayEventEnd()
 
-    public function setDisplayEventEnd($displayEventEnd=true): static {
+    public function setDisplayEventEnd(bool $displayEventEnd=true): static {
 
         $this->displayEventEnd = $displayEventEnd;
 
@@ -28,7 +35,7 @@ trait WithEventDisplay {
 
     } //end displayEventTime()
 
-    public function setDisplayEventTime($displayEventTime=true): static {
+    public function setDisplayEventTime(bool $displayEventTime=true): static {
 
         $this->displayEventTime = $displayEventTime;
 

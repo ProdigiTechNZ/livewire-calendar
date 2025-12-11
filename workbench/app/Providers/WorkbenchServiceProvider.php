@@ -12,6 +12,8 @@ final class WorkbenchServiceProvider extends ServiceProvider {
      */
     public function register(): void {
 
+        // not implemented
+
     } //end register()
 
     /**

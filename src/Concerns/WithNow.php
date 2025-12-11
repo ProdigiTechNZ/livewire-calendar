@@ -2,6 +2,13 @@
 
 namespace Prodigi\LivewireCalendar\Concerns;
 
+/**
+ * primary reference: https://fullcalendar.io/docs/now-indicator
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 trait WithNow {
 
     protected bool $now = true;

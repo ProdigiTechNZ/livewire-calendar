@@ -8,6 +8,13 @@ use Orchestra\Testbench\TestCase as Orchestra;
 use Prodigi\LivewireCalendar\LivewireCalendar;
 use Prodigi\LivewireCalendar\LivewireCalendarServiceProvider;
 
+/**
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ *
+ * @SuppressWarnings("UnusedFormalParameter")
+ */
 final class TestCase extends Orchestra {
 
     public function getEnvironmentSetUp($app): void {

@@ -4,6 +4,13 @@ namespace Prodigi\LivewireCalendar\Concerns;
 
 use Carbon\Carbon;
 
+/**
+ * primary ref: https://fullcalendar.io/docs/date-navigation
+ *
+ * original author didn't bother with function comments
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ */
 trait WithDateNavigation {
 
     protected ?Carbon $initialDate = null;
@@ -18,7 +25,7 @@ trait WithDateNavigation {
 
     } //end initialDate()
 
-    public function setInitialDate($initialDate=null): static {
+    public function setInitialDate(?Carbon $initialDate=null): static {
 
         $this->initialDate = $initialDate;
 

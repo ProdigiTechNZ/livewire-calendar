@@ -19,5 +19,6 @@
       "schedule": ["before 7am every weekday"]
     }
   ],
+  "pinDigests": false,
   "osvVulnerabilityAlerts": true
 }

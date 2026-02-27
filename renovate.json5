@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:best-practices",
-    ":pinDisabled"
+    ":preserveSemverRanges"
   ],
   "packageRules": [
     {
@@ -12,22 +12,12 @@
       ],
       "automerge": false
     },
-    // only needed if this repo uses laravel nova
+    // only needed if this repo uses laravel nova — remove otherwise
     {
       "matchManagers": ["composer"],
-      "schedule": ["before 7am every weekday"],
-      "registries": ["composer-nova"]
+      "matchPackagePatterns": ["laravel/nova"],
+      "schedule": ["before 7am every weekday"]
     }
   ],
-  "registries": {
-    // only needed if this repo uses laravel nova
-    "composer-nova": {
-      "type": "composer",
-      "url": "https://nova.laravel.com",
-      "username": "dan@prodigi.nz"
-      // NOTE: env var RENOVATE_COMPOSER_NOVA_PASSWORD is passed in from COMPOSER_NOVA_PASSWORD, set in fj UI
-      // for the renovate-bot user, under Settings | Actions | Secrets
-    }
-  },
   "osvVulnerabilityAlerts": true
 }

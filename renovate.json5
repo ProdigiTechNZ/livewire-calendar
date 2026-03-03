@@ -5,10 +5,14 @@
   ],
   "packageRules": [
     {
+      // major updates disabled — security vulnerabilities (osvVulnerabilityAlerts) will still raise PRs
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
       "matchUpdateTypes": [
         "minor",
-        "patch",
-        "digest"
+        "patch"
       ],
       "automerge": false
     },

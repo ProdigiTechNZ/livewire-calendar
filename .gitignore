@@ -1,4 +1,8 @@
+/database/database.sqlite_test*
+/tests/coverage
+.DS_Store
 .idea
+.phpunit.result.cache
 .phpunit.cache
 build
 composer.lock

@@ -1,28 +1,30 @@
 {
-  "extends": [
-    "config:best-practices",
-    ":preserveSemverRanges"
+  extends: [
+    'config:best-practices'
   ],
-  "packageRules": [
+  packageRules: [
     {
-      // major updates disabled — security vulnerabilities (osvVulnerabilityAlerts) will still raise PRs
-      "matchUpdateTypes": ["major"],
-      "enabled": false
+      matchUpdateTypes: [
+        'major',
+      ],
+      enabled: false,
     },
     {
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
-      "automerge": false
+      automerge: false,
     },
-    // only needed if this repo uses laravel nova — remove otherwise
     {
-      "matchManagers": ["composer"],
-      "matchPackagePatterns": ["laravel/nova"],
-      "schedule": ["before 7am every weekday"]
-    }
+      matchManagers: ['composer'],
+      schedule: [
+        'before 7am every weekday',
+      ],
+      matchPackageNames: ['laravel/nova'],
+      enabled: false,
+    },
   ],
-  "pinDigests": false,
-  "osvVulnerabilityAlerts": true
+  pinDigests: false,
+  osvVulnerabilityAlerts: true,
 }

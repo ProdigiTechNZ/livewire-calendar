@@ -1,30 +1,30 @@
 {
-  extends: [
-    'config:best-practices'
+  "extends": [
+    "config:best-practices"
   ],
-  packageRules: [
+  "packageRules": [
     {
-      matchUpdateTypes: [
-        'major',
-      ],
-      enabled: false,
+      // major updates disabled — security vulnerabilities (osvVulnerabilityAlerts) will still raise PRs
+      "matchUpdateTypes": ["major"],
+      "enabled": false
     },
+    // automerge policy is handled by global config (server/config.js):
+    //   patch → always automerge
+    //   minor → automerge dev deps only (require-dev / devDependencies)
+    //   major → disabled
+    // to override global policy for this repo, uncomment:
+    // {
+    //   "matchUpdateTypes": ["minor", "patch"],
+    //   "automerge": true,
+    //   "automergeType": "merge-commit"
+    // },
+    // only needed if this repo uses laravel nova — remove otherwise
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      automerge: false,
-    },
-    {
-      matchManagers: ['composer'],
-      schedule: [
-        'before 7am every weekday',
-      ],
-      matchPackageNames: ['laravel/nova'],
-      enabled: false,
-    },
+      "matchManagers": ["composer"],
+      "matchPackagePatterns": ["laravel/nova"],
+      "schedule": ["before 7am every weekday"]
+    }
   ],
-  pinDigests: false,
-  osvVulnerabilityAlerts: true,
+  "pinDigests": false,
+  "osvVulnerabilityAlerts": true
 }

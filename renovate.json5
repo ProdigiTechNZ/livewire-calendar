@@ -2,6 +2,8 @@
   "extends": [
     "config:best-practices"
   ],
+  // config:best-practices includes :configMigration which rewrites this file (stripping comments)
+  "configMigration": false,
   "packageRules": [
     {
       // major updates disabled — security vulnerabilities (osvVulnerabilityAlerts) will still raise PRs

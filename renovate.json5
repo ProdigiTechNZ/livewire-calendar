@@ -23,7 +23,7 @@
     // only needed if this repo uses laravel nova — remove otherwise
     {
       "matchManagers": ["composer"],
-      "matchPackagePatterns": ["laravel/nova"],
+      "matchPackageNames": ["/laravel\\/nova/"],
       "schedule": ["before 7am every weekday"]
     }
   ],

@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Foundation\Bus\Dispatchable;
+
+final class {{ class }} {
+
+    use Dispatchable;
+
+    /**
+     * Create a new job instance.
+     */
+    public function __construct() {
+
+        // not implemented
+
+    } //end __construct()
+
+    /**
+     * Execute the job.
+     */
+    public function handle(): void {
+
+        // not implemented
+
+    } //end handle()
+
+} //end class

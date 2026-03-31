@@ -1,0 +1,47 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+/**
+ * stop phpcs/md complaining about things that are irrelevant to a migration
+ *
+ * @SuppressWarnings("ShortMethodName")
+ * @SuppressWarnings("UnusedLocalVariable")
+ * @SuppressWarnings("UnusedFormalParameter")
+ *
+ * stop phpcs complaining (and helpfully auto-fixing/breaking) this laravel use of functions
+ * in this instance, it's FINE to make these not static. In fact, static functions (may) break things
+ *
+ * phpcs:disable SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic
+ * phpcs:disable SlevomatCodingStandard.Files.LineLength.LineTooLong
+ * phpcs:disable SlevomatCodingStandard.Functions.RequireMultiLineCall.RequiredMultiLineCall
+ * phpcs:disable SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
+ */
+return new class extends Migration {
+
+    /**
+     * Run the migrations.
+     */
+    public function up(): void {
+
+        Schema::table('{{ table }}', function (Blueprint $table) {
+            //
+        });
+
+    } //end up()
+
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void {
+
+        Schema::table('{{ table }}', function (Blueprint $table) {
+            //
+        });
+
+    } //end down()
+
+}; //end class;

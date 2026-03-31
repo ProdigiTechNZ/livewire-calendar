@@ -1,0 +1,35 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Support\Collection;
+use Laravel\Nova\Actions\DestructiveAction;
+use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Http\Requests\NovaRequest;
+
+class {{ class }} extends DestructiveAction {
+
+    /**
+     * Get the fields available on the action.
+     *
+     * @return \Laravel\Nova\Fields\Field[]
+     */
+    public function fields(NovaRequest $request): mixed {
+
+        return [];
+
+    }
+
+    /**
+     * Perform the action on the given models.
+     *
+     * @param ActionFields                                         $fields
+     * @param Collection<int, \Illuminate\Database\Eloquent\Model> $models
+     */
+    public function handle(ActionFields $fields, Collection $models): mixed {
+
+        // not implemented
+
+    }
+
+}

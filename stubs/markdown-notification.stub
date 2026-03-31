@@ -1,0 +1,52 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+
+final class {{ class }} extends Notification {
+
+    use Queueable;
+
+    /**
+     * Create a new notification instance.
+     */
+    public function __construct() {
+
+        // not implemented
+
+    } //end __construct()
+
+    /**
+     * Get the array representation of the notification.
+     */
+    public function toArray($notifiable): array {
+
+        return [
+            //
+        ];
+
+    } //end toArray()
+
+    /**
+     * Get the mail representation of the notification.
+     */
+    public function toMail($notifiable): MailMessage {
+
+        return (new MailMessage)->markdown('DummyView');
+
+    } //end toMail()
+
+    /**
+     * Get the notification's delivery channels.
+     */
+    public function via($notifiable): array {
+
+        return ['mail'];
+
+    } //end via()
+
+} //end class

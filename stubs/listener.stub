@@ -1,0 +1,25 @@
+<?php
+
+namespace {{ namespace }};
+
+final class {{ class }} {
+
+    /**
+     * Create the event listener.
+     */
+    public function __construct() {
+
+        // not implemented
+
+    } //end __construct()
+
+    /**
+     * Handle the event.
+     */
+    public function handle(object $event): void {
+
+        // not implemented
+
+    } //end handle()
+
+} //end class

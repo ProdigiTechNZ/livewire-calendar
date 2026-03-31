@@ -1,0 +1,23 @@
+<?php
+
+namespace [testnamespace];
+
+use [classwithnamespace];
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Livewire\Livewire;
+use Tests\TestCase;
+
+class [testclass] extends TestCase {
+
+    /**
+     * Test the component renders successfully.
+     */
+    public function test_renders_successfully() {
+
+        Livewire::test([class]::class)
+            ->assertStatus(200);
+
+    } //end test_renders_successfully()
+
+} //end class

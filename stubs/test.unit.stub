@@ -1,0 +1,31 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
+
+/**
+ * stop phpcs complaining about lack of comments on functions (most of these functions should be self obvious)
+ *
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ * phpcs:disable PEAR.Commenting.FunctionComment.WrongStyle
+ * phpcs:disable Generic.NamingConventions.CamelCapsFunctionName.ScopeNotCamelCaps
+ */
+final class {{ class }} extends TestCase {
+
+    // ================================ SCHEMA  ================================
+    /**
+     * check the {{ lower_table }} table exists and has the expected columns
+     */
+    public function test{{ table }}Table(): void {
+
+        $expectedColumns = [
+            {{ columns }}
+        ];
+
+        $this->checkTableAndColumns('{{ lower_table }}', $expectedColumns);
+
+    } //end test{{ table }}Table()
+
+} //end class

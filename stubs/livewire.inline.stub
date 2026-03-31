@@ -1,0 +1,22 @@
+<?php
+
+namespace [namespace];
+
+use Livewire\Component;
+
+final class [class] extends Component {
+
+    /**
+     * Render the component.
+     */
+    public function render() {
+
+        return <<<'HTML'
+        <div>
+            {{-- [quote] --}}
+        </div>
+        HTML;
+
+    } //end render()
+
+} //end class

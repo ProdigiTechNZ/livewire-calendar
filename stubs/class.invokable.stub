@@ -1,0 +1,25 @@
+<?php
+
+namespace {{ namespace }};
+
+final class {{ class }} {
+
+    /**
+     * Create a new class instance.
+     */
+    public function __construct() {
+
+        // not implemented
+
+    } //end __construct()
+
+    /**
+     * Invoke the class instance.
+     */
+    public function __invoke(): void {
+
+        // not implemented
+
+    } //end __invoke()
+
+} //end class

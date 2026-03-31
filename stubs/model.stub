@@ -1,0 +1,21 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * stop phpmd/phpcs from complaining about lack of camelCase (snake_case is needed for laravel)
+ * stop phpcs complaining about lack of comments on functions (these functions are self obvious)
+ *
+ * @SuppressWarnings("CamelCase")
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ * phpcs:disable Generic.NamingConventions.CamelCapsFunctionName.ScopeNotCamelCaps
+ */
+final class {{ class }} extends Model {
+
+    /** @use HasFactory<\Database\Factories\{{ class }}Factory> */
+    use HasFactory;
+
+} //end class

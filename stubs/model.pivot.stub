@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+/**
+ * stop phpmd/phpcs from complaining about lack of camelCase (snake_case is needed for laravel)
+ * stop phpcs complaining about lack of comments on functions (these functions are self obvious)
+ *
+ * @SuppressWarnings("CamelCase")
+ * phpcs:disable PEAR.Commenting.FunctionComment.Missing
+ * phpcs:disable Generic.NamingConventions.CamelCapsFunctionName.ScopeNotCamelCaps
+ */
+final class {{ class }} extends Pivot {
+
+    //
+
+} //end class

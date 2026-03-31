@@ -1,0 +1,26 @@
+<?php
+
+namespace {{ factoryNamespace }};
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use {{ namespacedModel }};
+
+/**
+ * let phpstan etc know which model the ->create() function returns
+ *
+ * @extends Factory<\{{ namespacedModel }}>
+ */
+final class {{ factory }}Factory extends Factory {
+
+    /**
+     * Define the model's default state.
+     */
+    public function definition(): array {
+
+        return [
+            //
+        ];
+
+    } //end definition()
+
+} //end class

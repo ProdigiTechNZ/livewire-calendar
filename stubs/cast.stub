@@ -1,0 +1,28 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
+
+final class {{ class }} implements CastsAttributes {
+
+    /**
+     * Cast the given value.
+     */
+    public function get(Model $model, string $key, $value, array $attributes): mixed {
+
+        return $value;
+
+    } //end get()
+
+    /**
+     * Prepare the given value for storage.
+     */
+    public function set(Model $model, string $key, $value, array $attributes): mixed {
+
+        return $value;
+
+    } //end set()
+
+} //end class

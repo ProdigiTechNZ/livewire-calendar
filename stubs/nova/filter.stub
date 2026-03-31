@@ -1,0 +1,48 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
+
+/**
+ * Just the usual nova nonsense
+ *
+ * @SuppressWarnings("UnusedFormalParameter")
+ */
+class {{ class }} extends Filter {
+    /**
+     * The filter's component.
+     *
+     * @var string
+     */
+    public $component = 'select-filter';
+
+    /**
+     * Apply the filter to the given query.
+     *
+     * @param NovaRequest                                  $request
+     * @param EloquentBuilder<\Illuminate\Database\Eloquent\Model> $query
+     * @param mixed                                        $value
+     *
+     * @return EloquentBuilder<\Illuminate\Database\Eloquent\Model> $query
+     */
+    public function apply(NovaRequest $request, $query, $value): EloquentBuilder {
+
+        return $query;
+
+    } //end apply()
+
+    /**
+     * Get the filter's available options.
+     *
+     * @return string[]
+     */
+    public function options(NovaRequest $request): array {
+
+        return [];
+
+    } //end options()
+
+} //end class

@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ namespace }};
+
+use Closure;
+use Illuminate\Http\Request;
+
+final class {{ class }} {
+
+    /**
+     * Handle an incoming request.
+     */
+    public function handle(Request $request, Closure $next): mixed {
+
+        return $next($request);
+
+    } //end handle()
+
+} //end class

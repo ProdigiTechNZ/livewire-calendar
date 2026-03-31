@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ namespace }};
+
+final class {{ class }} {
+
+    /**
+     * Create a new class instance.
+     */
+    public function __construct() {
+
+        // not implemented
+
+    } //end __construct()
+
+} //end class

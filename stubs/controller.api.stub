@@ -1,0 +1,56 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+final class {{ class }} extends Controller {
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(int $id): Response {
+
+        // not implemented
+
+    } //end destroy()
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(): Response {
+
+        // not implemented
+
+    } //end index()
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(int $id): Response {
+
+        // not implemented
+
+    } //end show()
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request): Response {
+
+        // not implemented
+
+    } //end store()
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, int $id): Response {
+
+        // not implemented
+
+    } //end update()
+
+} //end class

@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Helpers\Debug;
 use DB;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
@@ -216,6 +217,46 @@ abstract class TestCase extends BaseTestCase {
         return Debug::dumpOcto($object, $indent);
 
     } //end dump()
+
+    /**
+     * dump out full table information (so we can track if REALLY weird things are happening to the db, mid test)
+     * fortunately, this is typically only a table with maybe a row or two (coz in memory tests wipe everything)
+     */
+    public function dumpTable(string $tableName): string {
+
+        $upperName = strtoupper($tableName);
+        $items     = DB::table($tableName)->get();
+
+        $lines = [];
+
+        $lines[] = "ONLY {$upperName}(S) AVAILABLE:";
+        foreach ($items as $item) {
+            $lines[] = Debug::dump($item);
+        }
+
+        return implode("\n", $lines);
+
+    } //end dumpTable()
+
+    /**
+     * dump out the table definition (we had issues with sqlite not creating columns. This allowed triaging)
+     * leaving it here coz it might be useful in the future
+     *
+     * return string[]
+     */
+    public function dumpTableDefinition(string $tableName): string {
+
+        // turns out '.tables' doesn't work so well from here
+        $sql = "SELECT sql FROM sqlite_schema WHERE name='{$tableName}';";
+
+        $result = DB::select($sql);
+        // tidy up the output a little (this is NOT perfect, but it's good enough for our purposes)
+        // put whatever is after the first bracket on a new line
+        // replace commas with a comma+newline (will screw up decimals, but whatever)
+        // remove final ) and put a newline before it
+        return str_replace(' (', " (\n  ", str_replace(', ', ", \n  ", substr($result[0]->sql, 0, -1)))."\n)"."\n";
+
+    } //end dumpTableDefinition()
 
     /**
      * Allows us to test private methods, thusly:

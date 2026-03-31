@@ -1,15 +1,25 @@
 includes:
     - ./vendor/larastan/larastan/extension.neon
-#    - phpstan-baseline.neon
 
 parameters:
     level: 7
     tipsOfTheDay: false
     errorFormat: raw
     reportUnmatchedIgnoredErrors: false
+    universalObjectCratesClasses:
+        # have to link back to whatever we're originally inheriting from
+        - Illuminate\Database\Eloquent\Model
+        - Illuminate\Database\Eloquent\Collection
+        - Livewire\Testing\TestableLivewire
+        # oh Nova <sigh>
+        - Laravel\Nova\Resource
+        - Laravel\Nova\Lenses\Lens
+        - Laravel\Nova\Fields\FormData
     ignoreErrors:
         # all the laravel specific stuff phpstan/larastan aren't _quite_ clever enough to catch
         - "#Called '(first|pluck)' on Laravel collection, but could have been retrieved as a query#"
+        - '#Call to an undefined method Illuminate\\Support\\Fluent::#' # Fluent magic (Blueprint etc)
+        - '#Call to an undefined method Illuminate\\Database\\Schema\\ForeignKeyDefinition::nullable#'
         # these are autoloaded, but somehow not recognised
         - '#Caught class [a-zA-Z0-9\\_]+Exception not found#'
         - '#Caught class [a-zA-Z0-9\\_]+Throwable not found#'
@@ -17,3 +27,59 @@ parameters:
         - '#Call to an undefined method App\\Providers\\(App|Nova)ServiceProvider::+#'
         # it's not actually a final class
         - '#extends @final class Monolog\\Logger#'
+        # Fluent is VERY magic, and stands in for many Illuminate object (particularly Blueprint, in migrations)
+        - '#Call to an undefined method Illuminate\\Support\\Fluent::#'
+        # column modifiers ARE allowed on foreign key definitions (as long as they're before 'constrained')
+        - '#Call to an undefined method Illuminate\\Database\\Schema\\ForeignKeyDefinition::nullable#'
+        # pest is confusing coz it loads raw php files inside abstract classes (the doubled backslashes are coz the | screws everything)
+        - "#Call to an undefined method Pest\\\\Expectation\\|Pest\\\\Support\\\\Extendable::#"
+        # phpstan is VERY confused by Reflection
+        -
+            message: '#Call to an undefined method ReflectionType::getName#'
+            path: tests/TestCase.php
+        # jetstream magic (->banner/warningBanner/dangerBanner are auto added to the redirect object/call/return)
+        - '#Redirector::banner#'
+
+        # --- Test infrastructure (Pest / PHPUnit / Mockery) ---
+        - '#Call to an undefined method Mockery\\(ExpectationInterface|HigherOrderMessage)#'
+        # Pest's uses() binds methods and properties at runtime
+        -
+            message: '#Call to an undefined method PHPUnit\\Framework\\TestCase::#'
+            path: tests/
+        -
+            message: '#Access to an undefined property PHPUnit\\Framework\\TestCase::#'
+            path: tests/
+        -
+            message: '#Call to protected method expectException#'
+            path: tests/
+        -
+            message: '#Unable to resolve the template type TValue in call to function expect#'
+            path: tests/
+        -
+            message: '#Call to an undefined method ReflectionType::getName#'
+            path: tests/
+        -
+            message: '#should return.*but returns Mockery\\(MockInterface|LegacyMockInterface)#'
+            path: tests/
+        # Mockery partial mocks: PHPStan can't see methods through MockInterface
+        -
+            message: '#Call to an undefined method Mockery\\MockInterface::#'
+            path: tests/
+        -
+            message: '#contains unresolvable type#'
+            path: tests/
+        -
+            message: '#Anonymous function should return Pest\\Mixins\\Expectation.*but returns Pest\\Mixins\\Expectation#'
+            path: tests/Helpers/MemoryTest.php
+        # Pest's test() helper returns a HigherOrderTapProxy/TestCall — method chaining is legitimate
+        -
+            message: '#Call to an undefined method Pest[\w\\|]+::#'
+            path: tests/
+        # Pest Expectation $not / $and properties are magic-proxied
+        -
+            message: '#Access to an undefined property Pest\\Mixins\\Expectation#'
+            path: tests/
+        # Model::factory() comes from HasFactory; $modelClass is always a HasFactory model here
+        -
+            message: '#Call to an undefined static method Illuminate\\Database\\Eloquent\\Model::factory#'
+            path: tests/

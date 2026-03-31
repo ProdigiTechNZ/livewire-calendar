@@ -30,7 +30,7 @@
     </coverage>
     <source>
         <include>
-            <directory>app</directory>
+            <directory suffix=".php">./app</directory>
         </include>
     </source>
     <php>
@@ -45,7 +45,6 @@
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
-        <ini name="output_buffering" value="0"/>
         <ini name="memory_limit" value="1024M"/>
     </php>
 </phpunit>

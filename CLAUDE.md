@@ -1,6 +1,3 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What This Is
 
@@ -69,7 +66,7 @@ p-test cl-livewire-calendar --cov-claude <TestName>
 ```
 
 ## Key Constraints
-
+@vendor/prodigi/php-standard/php-rules.md
 - PHP ^8.3, Livewire ^3.6.4
 - FullCalendar loaded via CDN (v6.1.10) using `@livewireCalendarScript` directive — no npm build step
 - The config file (`config/livewire-calendar.php`) is intentionally empty; all configuration is done via fluent `set*` methods in `config()` override

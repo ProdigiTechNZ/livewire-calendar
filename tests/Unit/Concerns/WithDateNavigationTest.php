@@ -29,32 +29,27 @@ final class WithDateNavigationTestCalendar extends LivewireCalendar {
 
 describe('initialDate', function () {
 
-    // NOTE: initialDate() declares return type string but returns Carbon objects,
-    // relying on implicit Carbon::__toString() coercion. Tests assert the actual
-    // coerced-string behaviour. Source should call ->format()/'->toDateTimeString()
-    // explicitly — tracked as a source bug for Phase 6.
-
-    it('returns a date string when no date is set', function () {
+    it('returns the current datetime string when no date is set', function () {
         $result = (new WithDateNavigationTestCalendar)->initialDate();
 
-        expect($result)->toBeString();
+        expect($result)->toBeString()->toMatch('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/');
     });
 
-    it('returns the string form of the Carbon instance set via setInitialDate()', function () {
-        $date   = Carbon::parse('2025-06-15');
+    it('returns the datetime string of the Carbon instance set via setInitialDate()', function () {
+        $date   = Carbon::parse('2025-06-15 09:00:00');
         $result = (new WithDateNavigationTestCalendar)->setInitialDate($date)->initialDate();
 
-        expect($result)->toBe((string) $date);
+        expect($result)->toBe('2025-06-15 09:00:00');
     });
 
-    it('reverts to a current-date string when setInitialDate called with null', function () {
+    it('reverts to current datetime string when setInitialDate called with null', function () {
         $date   = Carbon::parse('2025-01-01');
         $result = (new WithDateNavigationTestCalendar)
             ->setInitialDate($date)
             ->setInitialDate(null)
             ->initialDate();
 
-        expect($result)->toBeString()->not->toBeEmpty();
+        expect($result)->toMatch('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/');
     });
 
     it('returns static for chaining', function () {

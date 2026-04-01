@@ -18,10 +18,10 @@ trait WithDateNavigation {
     public function initialDate(): string {
 
         if (is_null($this->initialDate)) {
-            return Carbon::now();
+            return Carbon::now()->toDateTimeString();
         }
 
-        return $this->initialDate;
+        return $this->initialDate->toDateTimeString();
 
     } //end initialDate()
 

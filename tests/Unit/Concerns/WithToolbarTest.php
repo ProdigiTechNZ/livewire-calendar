@@ -2,57 +2,40 @@
 
 // phpcs:disable PEAR.Commenting.FunctionComment.Missing
 
-use Prodigi\LivewireCalendar\LivewireCalendar;
-
-final class WithToolbarTestCalendar extends LivewireCalendar {
-
-    /** @return array<mixed> */
-    public function getEventsProperty(): array {
-
-        return [];
-
-    } //end getEventsProperty()
-
-    /**
-     * @param array<mixed> $info
-     *
-     * @SuppressWarnings("UnusedFormalParameter")
-     */
-    public function eventClick(array $info): void {
-
-        // no-op
-
-    } //end eventClick()
-
-} //end class
+use Prodigi\LivewireCalendar\Tests\Support\ConcreteCalendar;
 
 describe('headerToolbar', function () {
 
     it('defaults to null', function () {
-        expect((new WithToolbarTestCalendar)->headerToolbar())->toBeNull();
+        expect((new ConcreteCalendar)->headerToolbar())->toBeNull();
     });
 
     it('returns the array set via setHeaderToolbar()', function () {
         $toolbar = ['left' => 'prev,next', 'center' => 'title', 'right' => 'dayGridMonth'];
-        expect((new WithToolbarTestCalendar)->setHeaderToolbar($toolbar)->headerToolbar())->toBe($toolbar);
+        expect((new ConcreteCalendar)->setHeaderToolbar($toolbar)->headerToolbar())->toBe($toolbar);
+    });
+
+    it('treats an empty array as a distinct value from null', function () {
+        // FullCalendar: null = default toolbar; [] = no toolbar. These are semantically different.
+        expect((new ConcreteCalendar)->setHeaderToolbar([])->headerToolbar())->toBe([]);
     });
 
     it('can be explicitly set to null', function () {
         $toolbar = ['left' => 'prev'];
         expect(
-            (new WithToolbarTestCalendar)->setHeaderToolbar($toolbar)->setHeaderToolbar(null)->headerToolbar(),
+            (new ConcreteCalendar)->setHeaderToolbar($toolbar)->setHeaderToolbar(null)->headerToolbar(),
         )->toBeNull();
     });
 
     it('reverts to null when called with no argument', function () {
         $toolbar = ['left' => 'prev'];
         expect(
-            (new WithToolbarTestCalendar)->setHeaderToolbar($toolbar)->setHeaderToolbar()->headerToolbar(),
+            (new ConcreteCalendar)->setHeaderToolbar($toolbar)->setHeaderToolbar()->headerToolbar(),
         )->toBeNull();
     });
 
     it('returns static for chaining', function () {
-        $cal = new WithToolbarTestCalendar;
+        $cal = new ConcreteCalendar;
         expect($cal->setHeaderToolbar(null))->toBe($cal);
     });
 });
@@ -60,30 +43,35 @@ describe('headerToolbar', function () {
 describe('footerToolbar', function () {
 
     it('defaults to null', function () {
-        expect((new WithToolbarTestCalendar)->footerToolbar())->toBeNull();
+        expect((new ConcreteCalendar)->footerToolbar())->toBeNull();
     });
 
     it('returns the array set via setFooterToolbar()', function () {
         $toolbar = ['left' => 'prev,next', 'center' => 'title', 'right' => 'dayGridMonth'];
-        expect((new WithToolbarTestCalendar)->setFooterToolbar($toolbar)->footerToolbar())->toBe($toolbar);
+        expect((new ConcreteCalendar)->setFooterToolbar($toolbar)->footerToolbar())->toBe($toolbar);
+    });
+
+    it('treats an empty array as a distinct value from null', function () {
+        // FullCalendar: null = default toolbar; [] = no toolbar. These are semantically different.
+        expect((new ConcreteCalendar)->setFooterToolbar([])->footerToolbar())->toBe([]);
     });
 
     it('can be explicitly set to null', function () {
         $toolbar = ['left' => 'prev'];
         expect(
-            (new WithToolbarTestCalendar)->setFooterToolbar($toolbar)->setFooterToolbar(null)->footerToolbar(),
+            (new ConcreteCalendar)->setFooterToolbar($toolbar)->setFooterToolbar(null)->footerToolbar(),
         )->toBeNull();
     });
 
     it('reverts to null when called with no argument', function () {
         $toolbar = ['left' => 'prev'];
         expect(
-            (new WithToolbarTestCalendar)->setFooterToolbar($toolbar)->setFooterToolbar()->footerToolbar(),
+            (new ConcreteCalendar)->setFooterToolbar($toolbar)->setFooterToolbar()->footerToolbar(),
         )->toBeNull();
     });
 
     it('returns static for chaining', function () {
-        $cal = new WithToolbarTestCalendar;
+        $cal = new ConcreteCalendar;
         expect($cal->setFooterToolbar(null))->toBe($cal);
     });
 });

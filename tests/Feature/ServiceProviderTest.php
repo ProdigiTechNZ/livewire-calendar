@@ -20,13 +20,7 @@ describe('service provider', function () {
     it('registers the @livewireCalendarScript blade directive', function () {
         $output = Blade::render('@livewireCalendarScript');
 
-        expect($output)->toContain('fullcalendar')
+        expect($output)->toContain('cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js')
             ->and($output)->toContain('<script');
-    });
-
-    it('injects the correct FullCalendar CDN version', function () {
-        $output = Blade::render('@livewireCalendarScript');
-
-        expect($output)->toContain('6.1.10');
     });
 });

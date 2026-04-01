@@ -2,52 +2,30 @@
 
 // phpcs:disable PEAR.Commenting.FunctionComment.Missing
 
-use Prodigi\LivewireCalendar\LivewireCalendar;
-
-final class WithEventDisplayTestCalendar extends LivewireCalendar {
-
-    /** @return array<mixed> */
-    public function getEventsProperty(): array {
-
-        return [];
-
-    } //end getEventsProperty()
-
-    /**
-     * @param array<mixed> $info
-     *
-     * @SuppressWarnings("UnusedFormalParameter")
-     */
-    public function eventClick(array $info): void {
-
-        // no-op
-
-    } //end eventClick()
-
-} //end class
+use Prodigi\LivewireCalendar\Tests\Support\ConcreteCalendar;
 
 describe('displayEventEnd', function () {
 
     it('defaults to true', function () {
-        expect((new WithEventDisplayTestCalendar)->displayEventEnd())->toBeTrue();
+        expect((new ConcreteCalendar)->displayEventEnd())->toBeTrue();
     });
 
     it('can be set to false', function () {
-        expect((new WithEventDisplayTestCalendar)->setDisplayEventEnd(false)->displayEventEnd())->toBeFalse();
+        expect((new ConcreteCalendar)->setDisplayEventEnd(false)->displayEventEnd())->toBeFalse();
     });
 
     it('can be set to true explicitly', function () {
-        expect((new WithEventDisplayTestCalendar)->setDisplayEventEnd(true)->displayEventEnd())->toBeTrue();
+        expect((new ConcreteCalendar)->setDisplayEventEnd(true)->displayEventEnd())->toBeTrue();
     });
 
     it('reverts to true when called with no argument', function () {
         expect(
-            (new WithEventDisplayTestCalendar)->setDisplayEventEnd(false)->setDisplayEventEnd()->displayEventEnd(),
+            (new ConcreteCalendar)->setDisplayEventEnd(false)->setDisplayEventEnd()->displayEventEnd(),
         )->toBeTrue();
     });
 
     it('returns static for chaining', function () {
-        $cal = new WithEventDisplayTestCalendar;
+        $cal = new ConcreteCalendar;
         expect($cal->setDisplayEventEnd(false))->toBe($cal);
     });
 });
@@ -55,25 +33,25 @@ describe('displayEventEnd', function () {
 describe('displayEventTime', function () {
 
     it('defaults to true', function () {
-        expect((new WithEventDisplayTestCalendar)->displayEventTime())->toBeTrue();
+        expect((new ConcreteCalendar)->displayEventTime())->toBeTrue();
     });
 
     it('can be set to false', function () {
-        expect((new WithEventDisplayTestCalendar)->setDisplayEventTime(false)->displayEventTime())->toBeFalse();
+        expect((new ConcreteCalendar)->setDisplayEventTime(false)->displayEventTime())->toBeFalse();
     });
 
     it('can be set to true explicitly', function () {
-        expect((new WithEventDisplayTestCalendar)->setDisplayEventTime(true)->displayEventTime())->toBeTrue();
+        expect((new ConcreteCalendar)->setDisplayEventTime(true)->displayEventTime())->toBeTrue();
     });
 
     it('reverts to true when called with no argument', function () {
         expect(
-            (new WithEventDisplayTestCalendar)->setDisplayEventTime(false)->setDisplayEventTime()->displayEventTime(),
+            (new ConcreteCalendar)->setDisplayEventTime(false)->setDisplayEventTime()->displayEventTime(),
         )->toBeTrue();
     });
 
     it('returns static for chaining', function () {
-        $cal = new WithEventDisplayTestCalendar;
+        $cal = new ConcreteCalendar;
         expect($cal->setDisplayEventTime(false))->toBe($cal);
     });
 });

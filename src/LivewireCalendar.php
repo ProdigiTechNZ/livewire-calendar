@@ -46,12 +46,17 @@ abstract class LivewireCalendar extends Component {
      */
     abstract public function eventClick(array $info): void;
 
+    /** Livewire lifecycle hook — runs after the component is booted */
     public function booted(): void {
 
         $this->config();
 
     } //end booted()
 
+    /**
+     * Override this method to configure calendar options fluently via the set*() methods on the traits.
+     * Called automatically on every boot via booted().
+     */
     public function config(): void {
 
         // not implemented

@@ -6,6 +6,8 @@ parameters:
     tipsOfTheDay: false
     errorFormat: raw
     reportUnmatchedIgnoredErrors: false
+    scanFiles:
+        - tests/Pest.php
     universalObjectCratesClasses:
         - Livewire\Testing\TestableLivewire
     ignoreErrors:
